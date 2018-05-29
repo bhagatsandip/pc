@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- to activate annotations in beans already registered in the ApplicationContext -->
+	<context:annotation-config />
+
+	<!-- scans packages to find and register beans within the application context -->
+	<context:component-scan base-package="com.planetclubs" />
+
+	<!-- turn on spring transaction annotation -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+ 
+	<!-- Transaction Manager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Session Factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.planetclubs.model.Users</value>
+				<value>com.planetclubs.model.Usage</value>
+				<value>com.planetclubs.model.Services</value>
+				<value>com.planetclubs.model.Ratings</value>
+				<value>com.planetclubs.model.Notifications</value>
+				<value>com.planetclubs.model.Membership</value>
+				<value>com.planetclubs.model.Logs</value>
+				<value>com.planetclubs.model.Clubs</value>
+				<value>com.planetclubs.model.Tokens</value>
+				<value>com.planetclubs.model.Payments</value>
+				<value>com.planetclubs.model.ServicesDetails</value>
+				<value>com.planetclubs.model.PCMembership</value>
+				<value>com.planetclubs.model.MembershipBand</value>
+				<value>com.planetclubs.model.Transaction</value>
+				<value>com.planetclubs.model.Corporate</value>
+				<value>com.planetclubs.model.CorporatePlans</value>
+				<value>com.planetclubs.model.ClubsPoolBookingMap</value>
+				<value>com.planetclubs.model.ClubsPoolBooking</value>
+				<value>com.planetclubs.model.PoolBookingUsages</value>
+				<value>com.planetclubs.model.ClubPromotions</value>
+				<value>com.planetclubs.model.ReferenceData</value>
+				<value>com.planetclubs.model.Coupons</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- dataSource configuration --> 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		
+		
+		<!-- Prod -->
+		<!--<property name="url" value="jdbc:mysql://127.8.166.130:3306/planetclubs" />
+		<property name="username" value="adminvmBVUhG" />
+		<property name="password" value="Px-RksWh3Mj-" />-->
+		
+		<!-- QA -->
+		<property name="url" value="jdbc:mysql://127.5.200.2:3306/planetclubs" />
+		<property name="username" value="adminTR8SfbZ" />
+		<property name="password" value="cVQ1H5c9eM57" />
+		
+		<!-- QA2 -->
+		<!-- <property name="url" value="jdbc:mysql://127.7.145.130:3306/planetclubsqa" />
+		<property name="username" value="admin5GtiJKB" />
+		<property name="password" value="mjQSlCBT2yi4" /> -->
+		
+		
+		<!-- Local -->
+		<!-- <property name="url" value="jdbc:mysql://127.5.200.2:3306/planetclubs" />
+		<property name="username" value="root" />
+		<property name="password" value="" />  -->
+	</bean>
+
+</beans>

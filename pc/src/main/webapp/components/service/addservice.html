@@ -1,0 +1,54 @@
+<!-- Contact Us -->
+
+<!-- Main -->
+<article id="main">
+	<header>
+		<h2>Add Service</h2>
+		<p>Fill the form below to add service</p>
+	</header>
+	<section class="wrapper style5">
+		<div class="inner">
+
+			<section>
+				<h4>Kindly fill the form below.</h4>
+				<form method="post" action="/rest/servicesservice/addservice">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+							<input type="number" name="serviceId" id="serviceId" value="" ng-model="serviceId" required="required"
+								placeholder="Service Id" />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="number" name="serviceUnitCost" id="serviceUnitCost" value="" ng-model="serviceUnitCost" required="required"
+								placeholder="Service Unit Cost" />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="number" name="serviceDuration" id="serviceDuration" value="" ng-model="serviceDuration" required="required"
+								placeholder="Service Duration" />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="startTime" id="startTime" value="" ng-model="startTime" required="required"
+								placeholder="Start Time in HH:MM" />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="endTime" id="endTime" value="" ng-model="endTime" required="required"
+								placeholder="End Date in HH:MM" />
+						</div>
+						
+						<div class="6u$ 12u$(xsmall)">
+							<input type="radio" name="weekend" id="weekend" value ="weekend"  ng-model="weekend" style="height: 1.5em;">Weekend
+						</div>
+						
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message"
+									class="special" /></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</section>
+
+		</div>
+	</section>
+</article>

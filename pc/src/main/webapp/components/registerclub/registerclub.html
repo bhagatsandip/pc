@@ -1,0 +1,52 @@
+<!-- Contact Us -->
+
+<!-- Main -->
+<article id="main">
+	<header>
+		<h2>Register Club</h2>
+		<p>Fill the details below to register club.</p>
+	</header>
+	<section class="wrapper style5">
+		<div class="inner">
+
+			<section>
+				<h4>Form</h4>
+				<form ng-submit="authenticate()">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="firstName" id="firstName" value="" ng-model="firstName"
+								placeholder="First Name" />
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="lastName" id="lastName" value="" ng-model="lastName"
+								placeholder="Last Name" />
+						</div>
+						<div class="12u$">
+							<input type="email" name="username" id="username" value="" ng-model="username"
+ 								placeholder="Email" />
+						</div>
+
+						<div class="12u$">
+							<input type="password" name="password" id="password" value="" ng-model="password"
+ 								placeholder="Password" />
+						</div>
+						<div class="12u$">
+							<input type="password" name="retypePassword" id="retypePassword" value="" ng-model="retypePassword"
+ 								placeholder="Confirm Password" />
+						</div>
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Register Club"
+									class="special"/></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+				<div ng-show="error" class="alert alert-danger">{{error}}</div>
+    			<div ng-show="success" class="alert alert-success">{{success}}</div>
+			</section>
+
+		</div>
+	</section>
+</article>

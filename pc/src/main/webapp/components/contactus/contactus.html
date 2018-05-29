@@ -1,0 +1,52 @@
+<!-- Contact Us -->
+
+<!-- Main -->
+<article id="main">
+	<header>
+		<h2>Contact Us</h2>
+		<p>We're Here to Help!</p>
+	</header>
+	<section class="wrapper style5">
+		<div class="inner">
+
+			<section>
+				<h4>Reach out to us anytime and we'll happily answer your questions.</h4>
+				<form method="post" action="/rest/emailservice/contactus" ng-submit="submit()">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+							<input type="text" name="name" id="name" value="" ng-model="name" required="required"
+								placeholder="Name" />
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="email" name="email" id="email" value="" ng-model="email" required="required"
+ 								placeholder="Email" />
+						</div>
+						<div class="12u$">
+							<div class="select-wrapper">
+								<select name="category" id="category" ng-model="category" required="required">
+									<option value="">- Category -</option>
+									<option value="Service Request">Service Request</option>
+									<option value="Feedback">Feedback</option>
+									<option value="Suggestion">Suggestions</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="12u$">
+							<textarea name="message" id="message" ng-model="message" required="required"
+								placeholder="Enter your message" rows="6"></textarea>
+						</div>
+						<div class="12u$">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message"
+									class="special" onclick="submit()"/></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</section>
+
+		</div>
+	</section>
+</article>
